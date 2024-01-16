@@ -77,8 +77,8 @@ const feedURL = 'https://www.ubereats.com/feed?diningMode=PICKUP&pl=JTdCJTIyYWRk
 			console.log(`no deals found for this restaurant`);
 		}
 
-		console.log('sleeping 5 seconds...');
-		await new Promise(r => setTimeout(r, 5000));
+		console.log('sleeping 3 seconds...');
+		await new Promise(r => setTimeout(r, 3000));
 	}
 
 	fs.writeFileSync('./scraped.json', JSON.stringify(allCompiled));
