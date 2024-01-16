@@ -10,9 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     name: Run scrape.mjs and commit changes
-
+    env:
+      GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
     - uses: actions/checkout@v3
     - name: Setup Node
