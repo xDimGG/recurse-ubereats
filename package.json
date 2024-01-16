@@ -2,9 +2,9 @@
   "name": "ubereats",
   "version": "1.0.0",
   "description": "",
-  "main": "req.js",
+  "main": "scrape.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "main": "node scrape.mjs"
   },
   "keywords": [],
   "author": "",
