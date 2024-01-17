@@ -8,82 +8,88 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
 	<style>
-	body {
-		--body-margin: 20px;
-		margin: var(--body-margin);
-		font-family: 'Roboto', sans-serif;
-	}
+body {
+	--body-margin: 20px;
+	margin: var(--body-margin);
+	font-family: 'Roboto', sans-serif;
+}
 
-	#mount {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(min(100vw - var(--body-margin)*2, 300px), 1fr));
-		gap: 20px;
-		width: 100%;
-	}
+#mount {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100vw - var(--body-margin)*2, 400px), 1fr));
+	gap: 20px;
+	width: 100%;
+}
 
-	.banner {
-		width: 100%;
-		height: 100px;
-		display: block;
-		overflow: hidden;
-		width: 100%;
-		position: relative;
-		margin-bottom: 10px;;
-	}
+.restaurant {
+	border: 2px solid black;
+	border-radius: 5px;
+}
 
-	.banner span {
-		position: absolute;
-		bottom: 50%;
-		transform: translateY(50%);
-		color: white;
-		font-size: 26px;
-		text-shadow: 0 0 8px black;
-		left: 5px;
-		padding: 20px;
-		font-weight: 900;
-		z-index: 2;
-	}
+.items {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 10px;
+	padding: 8px;
+}
 
-	.banner img {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
-	}
+.banner {
+	width: 100%;
+	height: 100px;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	position: relative;
+}
 
-	.banner::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		left: 0;
-		bottom: 0;
-		background-color: rgba(0, 0, 0, 0.1);
-	}
+.banner span {
+	position: absolute;
+	bottom: 50%;
+	transform: translateY(50%);
+	color: white;
+	font-size: 26px;
+	text-shadow: 0 0 8px black;
+	left: 5px;
+	padding: 20px;
+	font-weight: 900;
+	z-index: 2;
+}
 
-	.items {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 10px;
-	}
+/* .banner img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+} */
 
-	.deal img {
-		width: 100%;
-		object-fit: cover;
-	}
+.banner::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	background-color: #000000;
+	opacity: 0.95;
+	background-size: 9px 9px;
+	background-image: repeating-linear-gradient(45deg, #002f17 0, #002f17 0.9px, #000000 0, #000000 50%);
+}
 
-	.deal span {
-		display: block;
-		font-size: 16px;
-	}
+.deal img {
+	width: 100%;
+	object-fit: cover;
+}
+
+.deal span {
+	display: block;
+	font-size: 16px;
+}
 	</style>
 </head>
 <body>
-	<h2 style="text-align: center; font-weight: 500;">
-		Uber<span style="font-weight: 900; color: #03c167;">Eats</span> deals near 397 Bridge St
-	</h2>
-	<div id="mount">
-
-	</div>
+	<h1 style="text-align: center; font-weight: 500;">
+		Uber<span style="font-weight: 900; color: #03c167;">Eats</span> BOGO deals near 397 Bridge St
+	</h1>
+	<div id="mount"></div>
 	<script>
 		const RESOURCE_URL = './scraped.json';
 		const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -103,7 +109,7 @@
 <div class="restaurant">
 	<div class="banner">
 		<span>${rest.name}</span>
-		<img src="${rest.image[rest.image.length - 1]}">
+		<!-- <img src="${rest.image[rest.image.length - 1]}"> -->
 	</div>
 
 	<div class="items">
