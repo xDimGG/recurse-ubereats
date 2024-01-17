@@ -25,7 +25,7 @@ const feedURL = 'https://www.ubereats.com/feed?diningMode=PICKUP&pl=JTdCJTIyYWRk
 	await page.waitForSelector(cards);
 
 	for (const el of await page.$$(cards)) {
-	  const offer = await el.evaluate(e => e.querySelector('picture + div > div').textContent);
+	  const offer = await el.evaluate(e => e.querySelector('picture + div > div')?.textContent) || '';
 	  const href = await el.evaluate(e => e.querySelector('a').href);
 	  if (offer.trim() === '') continue;
 	  restaurants.push(href);
