@@ -5,7 +5,7 @@ name: Cron Scrape
 
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/10 * * * *"
 
 permissions:
   contents: write
