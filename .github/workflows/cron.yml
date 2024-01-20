@@ -28,5 +28,5 @@ jobs:
         git config --global user.email "gh-actions@github.com"
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${{github.repository}}.git
     - run: npm run main
-    - run: git commit -am "update scraped.json"
+    - run: git commit --allow-empty -am "update scraped.json"
     - run: git push
