@@ -13,7 +13,7 @@ import fs from 'fs';
 const feedURL = 'https://www.ubereats.com/feed?diningMode=PICKUP&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjM5NyUyMEJyaWRnZSUyMFN0JTIyJTJDJTIycmVmZXJlbmNlJTIyJTNBJTIyaGVyZSUzQWFmJTNBc3RyZWV0c2VjdGlvbiUzQWRrcFQwMXY0d3p1N1VEWHp3MFBvTUElM0FDZ2NJQkNEUHQtVWpFQUVhQXpNNU53JTIyJTJDJTIycmVmZXJlbmNlVHlwZSUyMiUzQSUyMmhlcmVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0E0MC42OTEzNiUyQyUyMmxvbmdpdHVkZSUyMiUzQS03My45ODUyJTdE&sf=JTVCJTdCJTIydXVpZCUyMiUzQSUyMjJjN2NmN2VmLTczMGYtNDMxZi05MDcyLTM2YmMzOWY3YzEyMiUyMiUyQyUyMm9wdGlvbnMlMjIlM0ElNUIlNUQlN0QlMkMlN0IlMjJ1dWlkJTIyJTNBJTIyMWM3Y2Y3ZWYtNzMwZi00MzFmLTkwNzItMjZiYzM5ZjdjMDIxJTIyJTJDJTIyb3B0aW9ucyUyMiUzQSU1QiU3QiUyMnV1aWQlMjIlM0ElMjIzYzdjZjdlZi03MzBmLTQzMWYtOTA3Mi0yNmJjMzlmN2MwMjIlMjIlN0QlNUQlN0QlNUQ%3D';
 
 console.log('launching puppeteer...');
-const browser = await puppeteer.launch({ headless: false });
+const browser = await puppeteer.launch({ headless: 'new' });
 const page = (await browser.pages())[0];
 
 console.log('getting nearby restaurants..');
