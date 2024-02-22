@@ -47,7 +47,7 @@ for (let i = 0; i < restaurants.length; i++) {
 	const reactData = body.match(/__REACT_QUERY_STATE__">(.*?)<\/script>/s)[1];
 	const rawData = JSON.parse(decodeURIComponent(JSON.parse(`"${reactData.trim()}"`)));
 	const { data } = rawData.queries[0].state;
-	const [section] = data.sections;
+	const section = data?.sections?.[0];
 	if (section.isOnSale && data.catalogSectionsMap[section.uuid]) {
 		const items = new Map();
 		for (const { payload } of data.catalogSectionsMap[section.uuid]) {
