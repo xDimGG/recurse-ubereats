@@ -44,11 +44,11 @@ for (let i = 0; i < restaurants.length; i++) {
 			'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
 		},
 	}).then(res => res.text());
-	const reactData = body.match(/__REACT_QUERY_STATE__">(.*?)<\/script>/s)[1];
-	const rawData = JSON.parse(decodeURIComponent(JSON.parse(`"${reactData.trim()}"`)));
-	const { data } = rawData.queries[0].state;
+	const reactData = body.match(/__REACT_QUERY_STATE__">(.*?)<\/script>/s)?.[1];
+	const rawData = reactData && JSON.parse(decodeURIComponent(JSON.parse(`"${reactData.trim()}"`)));
+	const data = rawData?.queries?.[0]?.state?.data;
 	const section = data?.sections?.[0];
-	if (section.isOnSale && data.catalogSectionsMap[section.uuid]) {
+	if (data && section && section.isOnSale && data.catalogSectionsMap[section.uuid]) {
 		const items = new Map();
 		for (const { payload } of data.catalogSectionsMap[section.uuid]) {
 			for (const item of payload.standardItemsPayload.catalogItems) {
